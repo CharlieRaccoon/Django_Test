@@ -1,0 +1,40 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Список уроков{% endblock %}
+
+
+{% block content %}
+    <div class="features">
+        <h1>Список уроков</h1>
+        {# Проверяем на наличие записей в БД Уроков и перебираем по циклу, чтобы разделить #}
+        <div class="lessons_list">
+            {% if page_obj %}
+                {% for el in page_obj %}
+                    <div class="lesson_text">
+                        <h3>{{ el.lesson_name }}</h3>
+                        <p>{{ el.description }}</p>
+                        <a href="{% url 'lesson-detail' el.id %}" class="btn btn-success">Посмотреть детальней</a>
+                    </div>
+                {% endfor %}
+                <div class="pagination">
+                    <span class="step-links">
+                        {% if page_obj.has_previous %}
+                            <a class="btn btn-secondary" href="?page=1">&laquo; Первая</a>
+                            <a class="btn btn-secondary" href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+                        {% endif %}
+                        <span class="btn btn-secondary">
+                            Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+                        </span>
+
+                        {% if page_obj.has_next %}
+                            <a class="btn btn-secondary" href="?page={{ page_obj.next_page_number }}">Следующая</a>
+                            <a class="btn btn-secondary" href="?page={{ page_obj.paginator.num_pages }}">Последняя &raquo;</a>
+                        {% endif %}
+                    </span>
+                </div>
+            {% else %}
+                <p>У вас не добавлены уроки!</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

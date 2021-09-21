@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('lesson_name', models.CharField(max_length=255)),
                 ('description', models.TextField()),
                 ('assessment', models.PositiveIntegerField(default=5, validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(10)])),
-                ('teacher', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='lessons', to='school.teacher')),
+                ('teacher', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='lessons', to='lesson.teacher')),
             ],
         ),
     ]

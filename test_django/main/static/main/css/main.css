@@ -1,0 +1,103 @@
+body {
+    background: #fbfbfd;
+}
+
+aside {
+    float: left;
+    background: rgb(51,51,51);
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+    color: #d6d6d6;
+    border: 5px solid #333333;
+    border-radius: 0px 0px 40px 0px;
+}
+
+aside img {
+    width: 80px;
+    float: left;
+}
+
+aside .logo {
+    font-size: 35px;
+    margin-left: 10px;
+    font-weight: bold;
+    position: relative;
+    top: 16px;
+}
+
+aside h3 {
+    margin-top: 50px;
+    font-size: 28px;
+}
+
+aside ul {
+    list-style: none
+}
+aside ul li {
+    color: #d6d6d6;
+    display: block;
+    margin-top: 20px;
+    transition: transform .3s ease;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color: #fff;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+aside a {
+    text-decoration: none;
+}
+
+main .features {
+    float: left;
+    color: #1d1d1f;
+    margin-top: 10px;
+    text-align: center;
+    width: 80%;
+}
+
+main .features h1 {font-size: 50px}
+main .features p {max-width: 400px; margin: 20px auto}
+
+.alert-warning {
+    float: left;
+    clear: both;
+    width: 400px;
+    margin: 20px 34%;
+    text-align: left;
+}
+
+form {
+    margin-left: 32%;
+    width: 500px;
+    margin-top: 50px;
+}
+
+.pagination {
+    float: left;
+    color: #1d1d1f;
+    margin-top: 10px;
+    margin-left: 28%;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.lessons_list {
+    white-space: nowrap;
+}
+.lesson_text {
+    white-space: normal;
+	display: inline-block;
+	width: 40%;
+	vertical-align: top;
+	background: #fff2e1;
+	margin: 10px;
+	border: 5px solid #fff2e1;
+    border-radius: 20px;
+}
+.lessons_list .lesson_text:first-child {
+    margin-right: 2%;
+}

@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Форма по добавлению урока{% endblock %}
+
+
+{% block content %}
+    <div class="features">
+        <h1>Форма по добавлению урока</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.lesson_name }}<br>
+            {{ form.description }}<br>
+            {{ form.assessment }}
+            <p>Выбор учителя:</p>
+            {{ form.teacher }}<br>
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Добавить урок</button>
+        </form>
+    </div>
+{% endblock %}

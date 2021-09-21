@@ -1,0 +1,13 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Учитель {{ lesson.name }}{% endblock %}
+
+
+{% block content %}
+    <div class="features">
+        <h1>{{ teacher.name }}</h1>
+        <p>Работает с {{ teacher.date_employment }}</p>
+        <p>Зарплата учителя {{ teacher.salary }}</p>
+        <img src="{{ MEDIA_URL }}{{ teacher.avatar.url }}" height="320" width="240"/>
+    </div>
+{% endblock %}

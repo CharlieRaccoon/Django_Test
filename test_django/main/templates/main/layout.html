@@ -1,0 +1,36 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+</head>
+<body>
+    <div class="main_container">
+        <aside>
+            <img src="{% static 'main/img/logo.svg' %}" alt="Лого">
+            <span class="logo">Django</span>
+            <h3>Навигация</h3>
+            <ul>
+                <a href="{% url 'home' %}"><li><i class="fas fa-home"></i> Главная</li></a>
+                <a href="{% url 'lessons_list' %}"><li><i class="fas fa-user-friends"></i> Уроки</li></a>
+                <a href="{% url 'teachers_list' %}"><li><i class="fas fa-address-card"></i> Список учителей</li></a>
+                <a href="/api/lessons"><li><i class="fas fa-user-friends"></i> API: Уроки</li></a>
+                <a href="/api/teachers"><li><i class="fas fa-address-card"></i> API: Список учителей</li></a>
+                <a href="/admin"><li><i class="fas fa-users-cog"></i> Admin</li></a>
+                <a href="{% url 'create' %}"><li><button class="btn btn-info"><i class="fas fa-plus-circle"></i> Добавить урок</button></li></a>
+            </ul>
+        </aside>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+</body>
+</html>

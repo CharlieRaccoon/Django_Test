@@ -2,32 +2,41 @@ from rest_framework import viewsets
 from django.shortcuts import render, redirect
 from .forms import LessonForm
 from django.views.generic import DetailView
-from django.core.paginator import Paginator
+from rest_framework.pagination import PageNumberPagination
 
 
-#Импорт моделей и сериализаторов
+class PagePagination(PageNumberPagination):
+    page_size = 3
+    page_size_query_param = page_size
+    max_page_size = 10
+
+
+# Импорт моделей и сериализаторов
 from .models import Lesson, Teacher
 from .serializers import LessonSerializer, TeacherSerializer
 
-#Создаем новый класс с новой БД для учителей
+# Создаем новый класс с новой БД для учителей
 class TeacherViewSet(viewsets.ModelViewSet):
     serializer_class = TeacherSerializer
+    pagination_class = PagePagination
     queryset = Teacher.objects.all()
 
-#Создаем новый класс с новой БД для уроков
+# Создаем новый класс с новой БД для уроков
 class LessonViewSet(viewsets.ModelViewSet):
     serializer_class = LessonSerializer
+    pagination_class = PagePagination
     queryset = Lesson.objects.all()
 
-#Функция для вывода БД на сайте
+# Функция для вывода БД на сайте
 def lessons_list(request):
     lessons = Lesson.objects.all()
-    paginator = Paginator(lessons, 2)
+    # paginator = Paginator(lessons, 2)
+    #
+    # page_number = request.GET.get('page')
+    # page_obj = paginator.get_page(page_number)
+    return render(request, 'lessons/lessons_list.html', {'lessons': lessons})
 
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    return render(request, 'lessons/lessons_list.html', {'page_obj': page_obj})
-
+# Функция для создания урока
 def create(request):
     error = ''
     if request.method == 'POST':
@@ -55,11 +64,11 @@ class LessonDetailView(DetailView):
 
 def teachers_list(request):
     teachers = Teacher.objects.all()
-    paginator = Paginator(teachers, 2)
-
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    return render(request, 'lessons/teachers_list.html', {'page_obj': page_obj})
+    # paginator = Paginator(teachers, 2)
+    #
+    # page_number = request.GET.get('page')
+    # page_obj = paginator.get_page(page_number)
+    return render(request, 'lessons/teachers_list.html', {'teachers': teachers})
 
 class TeacherDetailView(DetailView):
     model = Teacher

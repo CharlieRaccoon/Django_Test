@@ -75,29 +75,3 @@ form {
     width: 500px;
     margin-top: 50px;
 }
-
-.pagination {
-    float: left;
-    color: #1d1d1f;
-    margin-top: 10px;
-    margin-left: 28%;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-.lessons_list {
-    white-space: nowrap;
-}
-.lesson_text {
-    white-space: normal;
-	display: inline-block;
-	width: 40%;
-	vertical-align: top;
-	background: #fff2e1;
-	margin: 10px;
-	border: 5px solid #fff2e1;
-    border-radius: 20px;
-}
-.lessons_list .lesson_text:first-child {
-    margin-right: 2%;
-}

@@ -75,3 +75,39 @@ form {
     width: 500px;
     margin-top: 50px;
 }
+
+.teacher-title {
+    text-align: center;
+}
+
+.teachers-list {
+    -moz-column-count: 3;
+    column-count: 3;
+}
+
+.teacher-block {
+    margin-left: 50px;
+    margin-bottom: 10px;
+    width: 100%;
+    float: left;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.lessons {
+    margin-right: 20px;
+    margin-left: 22%;
+}
+
+.lessons-list {
+    -moz-column-count: 3;
+    column-count: 3;
+}
+
+.lesson-block {
+    margin-bottom: 10px;
+    width: 100%;
+    float: left;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}

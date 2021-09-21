@@ -4,16 +4,21 @@
 
 
 {% block content %}
-    <div class="features">
-        <h1>Список уроков</h1>
+    <div class="lessons">
+        <h1 class="teacher-title">Список уроков</h1>
         {# Проверяем на наличие записей в БД Уроков и перебираем по циклу, чтобы разделить #}
-        <div class="lessons_list">
+        <div class="lessons-list">
             {% if lessons %}
                 {% for el in lessons %}
-                    <div class="lesson_text">
-                        <h3>{{ el.lesson_name }}</h3>
-                        <p>{{ el.description }}</p>
-                        <a href="{% url 'lesson-detail' el.id %}" class="btn btn-success">Посмотреть детальней</a>
+                    <div class="lesson-block">
+                        <div class="card" style="width: 23rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ el.lesson_name }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Максимальная оценка: {{ el.assessment }}</h6>
+                                <p class="card-text">{{ el.description }}</p>
+                                <a href="{% url 'lesson-detail' el.id %}" class="btn btn-primary">Посмотреть детальней</a>
+                            </div>
+                        </div>
                     </div>
                 {% endfor %}
             {% else %}
